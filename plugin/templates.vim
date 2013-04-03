@@ -110,6 +110,7 @@ function <SID>TExpandVars()
 				\ (exists("g:user") ? g:user : $USER)
 	let l:email = exists("g:email") ? g:email : (l:user . "@" . l:hostn)
 	let l:guard = substitute(l:filec, "[^a-zA-Z0-9]", "_", "g")
+    let l:license = g:license
 
 	" Finally, perform expansions
 	call <SID>TExpand("DAY",   l:day)
@@ -125,6 +126,7 @@ function <SID>TExpandVars()
 	call <SID>TExpand("MAIL",  l:email)
 	call <SID>TExpand("HOST",  l:hostn)
 	call <SID>TExpand("GUARD", l:guard)
+    call <SID>TExpand("LICENSE", l:license)
 endfunction
 
 " }}}2
