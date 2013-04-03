@@ -4,7 +4,7 @@
  *
  * Copyright (C) %YEAR% %USER% <%MAIL%>
  *
- * Distributed under terms of the MIT license.
+ * %LICENSE%
  *
  * @package %FILE%
  * @author %USER% <%MAIL%>

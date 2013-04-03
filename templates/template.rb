@@ -2,7 +2,7 @@
 #
 # Copyright © %YEAR% %USER% <%MAIL%>
 #
-# Distributed under terms of the MIT license.
+# %LICENSE%
 
 %HERE%
 
