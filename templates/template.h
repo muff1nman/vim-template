@@ -10,4 +10,4 @@
 
 %HERE%
 
-#endif /* !__%GUARD%__ */
+#endif /* __!%GUARD%__ */
