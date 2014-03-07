@@ -180,6 +180,34 @@ function <SID>TPutCursor()
 	endif
 endfunction
 
+""""""""""""""""""""""""""""
+" BEGIN Match generators
+"
+" A match generator returns a regular expression to match the provided filename
+" with one or more template names. If there are multiple matches with the
+" generated regular expression, choose the most specific template name that
+" matches
+""""""""""""""""""""""""""""
+function <SID>ExtensionMatch(filename)
+	let l:ext_index = strridx(filename,'.')
+	if l:ext_index != -1
+		let l:extension = strpart(filename, l:ext_index)
+		return "template." . l:extension
+	endif
+	return ""
+endfunction
+
+" Ext or tail matcher
+"
+" This function first attempts to match on a file's ext name and if there is not
+" ext, it tries to match on the file name
+function <SID>ExtensionOrTailMatch(filename)
+	" TODO
+endfunction
+
+""""""""""""""""""""""""""""
+" END Match generators
+""""""""""""""""""""""""""""
 
 " Template application. {{{1
 
@@ -191,16 +219,12 @@ function <SID>TLoad()
 		return
 	endif
 
-	let l:file_ext = expand("%:e")
-	if l:file_ext == ""
-		let l:file_ext = expand("%:t")
-	endif
-
 	let l:file_dir = <SID>DirName(expand("%:p"))
+	let l:tName = <SID>ExtensionMatch("%")
 
 	let l:depth = exists("g:template_max_depth") ? g:template_max_depth : 0
-	let l:tName = "template." . l:file_ext
 	let l:tFile = <SID>TFind(l:file_dir, l:tName, l:depth)
+
 	if l:tFile != ""
 		" Read template file and expand variables in it.
 		execute "0r " . l:tFile
