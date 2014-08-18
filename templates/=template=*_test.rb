@@ -1,8 +1,8 @@
 #! /usr/bin/env ruby
 #
-# Copyright © 2013 Andrew DeMaria (muff1nman) <ademaria@mines.edu>
+# Copyright © %YEAR% %USER% <%MAIL%>
 #
-# All Rights Reserved.
+# %LICENSE%
 
 require 'test/unit'
 
